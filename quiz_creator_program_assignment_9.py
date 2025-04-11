@@ -22,7 +22,20 @@ def user_questions(number):
     for option in ['a', 'b', 'c', 'd']:
         answer = input(f" {option}) ").strip()
         choices[option] = answer
-                   
+    
+    while True:
+        correct_answer = input("\n Enter the correct answer (a, b, c, d,: )").lower() #inputs the correct answer and stores
+        if correct_answer in choices:
+            break
+        else:
+         print("Invalid option. Select from (a, b, c, d,).")
+    
+    return { #created dictionary to access the inputs easier
+        "number": number, 
+        "question": question,
+        "choices": choices,
+        "correct": correct_answer
+    }     
     
 #start loop, prompting to ask question and the right answer until the prompted number of questions
 #export the questions into a file

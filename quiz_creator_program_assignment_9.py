@@ -60,7 +60,7 @@ def main():
     for i in range(number_of_questions):
         question_number = starting_number + i
         question_data = user_questions(question_number)
-        export_questions_to_file(question_data)
+        write_question_to_file(question_data)
         print(f"\nInputted question {question_number} saved.\n")
         
     print(f"{number_of_questions} question(s) added and exported to file.\n")

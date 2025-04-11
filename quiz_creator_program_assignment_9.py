@@ -62,3 +62,8 @@ def main():
         question_data = user_questions(question_number)
         export_questions_to_file(question_data)
         print(f"\nInputted question {question_number} saved.\n")
+        
+    print(f"{number_of_questions} question(s) added and exported to file.\n")
+    
+if __name__ == "__main__":
+    main()

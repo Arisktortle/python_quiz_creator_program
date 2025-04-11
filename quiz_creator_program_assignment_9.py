@@ -12,7 +12,10 @@ def main():
         except ValueError:
             print("Invalid number input.")
         
-#create a function that will ask question 
 #create function that will ask for the right answer
+def user_questions(number): 
+    print(f"For question {number}")
+    question = input("Enter your question:\n ").strip() #a function that will ask question 
+    
 #start loop, prompting to ask question and the right answer until the prompted number of questions
 #export the questions into a file

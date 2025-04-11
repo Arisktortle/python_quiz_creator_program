@@ -12,7 +12,6 @@ def main():
         except ValueError:
             print("Invalid number input.")
         
-#create function that will ask for the right answer
 def user_questions(number): 
     print(f"For question {number}")
     question = input("Enter your question:\n ").strip() #function that will ask question 
@@ -36,6 +35,12 @@ def user_questions(number):
         "choices": choices,
         "correct": correct_answer
     }     
-    
-#start loop, prompting to ask question and the right answer until the prompted number of questions
-#export the questions into a file
+
+def export_questions_to_file(filename="quiz_data.txt"): #export the questions into a file
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        count = sum(1 for line in lines if line.strip().startswith("#QUESTION_") and "_START" in line)
+        return count
+    except FileNotFoundError:
+        return 0

@@ -1,4 +1,7 @@
-#welcome menu for quiz
+#welcome menu for quiz 
+def main():
+    print("Welcome to Quiz Creator Program!")
+
 #ask user how many questions in will be inputted
 #create a function that will ask question 
 #create function that will ask for the right answer

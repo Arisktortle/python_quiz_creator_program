@@ -22,15 +22,15 @@ def user_questions(number):
         "correct": correct_answer
     }     
 
-def export_questions_to_file(filename="quiz_data.txt"): #export the questions into a file
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-        count = sum(1 for line in lines if line.strip().startswith("#QUESTION_") and "_START" in line)
-        return count
-    except FileNotFoundError:
-        return 0
-    
+def write_question_to_file(question_data, filename="quiz_data.txt"): #exports the question inputted to file
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write(f"#QUESTION_{question_data['number']}_START\n")
+        f.write(f"Question {question_data['number']}: {question_data['question']}\n")
+        for opt in ['a', 'b', 'c', 'd']:
+            f.write(f"{opt}) {question_data['choices'][opt]}\n")
+        f.write(f"ANSWER: {question_data['correct']}\n")
+        f.write(f"#QUESTION_{question_data['number']}_END\n\n")
+
 #counts the number of questions inputted
 def get_existing_question_count(filename="quiz_data.txt"):
     try:
